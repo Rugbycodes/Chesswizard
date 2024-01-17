@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equation Solver</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        input, button, p {
+            padding: 10px;
+            font-size: 16px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Equation Solver</h1>
+    <label for="base">Enter the logarithm base (a): </label>
+    <input type="number" id="base">
+
+    <br>
+
+    <label for="result">Enter the result (y): </label>
+    <input type="number" id="result">
+
+    <br>
+
+    <button onclick="solveEquation()">Solve</button>
+
+    <p id="solution"></p>
+
+    <script>
+        function solveEquation() {
+            var base = parseFloat(document.getElementById("base").value);
+            var result = parseFloat(document.getElementById("result").value);
+
+            if (!isNaN(base) && !isNaN(result) && base > 0 && base !== 1) {
+                var solution = Math.pow(base, result);
+                document.getElementById("solution").innerHTML = "Solution: " + solution;
+            } else {
+                document.getElementById("solution").innerHTML = "Please enter valid numbers (base > 0, base ≠ 1).";
+            }
+        }
+    </script>
+</body>
+</html>
